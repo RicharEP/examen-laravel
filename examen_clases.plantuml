@@ -1,0 +1,56 @@
+@startuml
+
+class usuarios {
+int id_usuarios
+reservar_libros()
+hacer_reseña()
+
+}
+class libros {
+    int id_libros
+    string titulo
+    string paginas 
+    buscar_autor()
+    hacer_reseña()
+    clasificar_libro()
+
+}
+class reseñas {
+    int id_reseñas 
+    hacer_reseña()
+}
+class autors {
+    int id_autors
+    string nombre
+    presentar_libros
+  
+}
+class libroautors {
+    int id_libroautors
+    string nombre
+    presentar_librosautor
+  
+}
+class categorias {
+    int id_categorias
+    string nombre_categoria
+    presentar_categorias()
+}
+
+class librocategorias {
+    int id_libroscategorias
+    presentar_libroscategorias()
+}
+
+
+
+
+usuarios "1"--"*" libros
+usuarios "1"--"*" reseñas
+libros "1"--"*" reseñas
+libros "1"--"1" autors
+libros "*"--"1" libroautors
+libros "*"--"1" librocategorias
+libros "1"--"*" categorias
+
+@enduml
